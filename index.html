@@ -1,0 +1,296 @@
+<!-- CÓDIGO COMPLETO CON CARRUSEL Y FLECHAS RETRO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrategias de Ventas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: black;
+      color: #00ff00;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: url('https://cdn.pixabay.com/photo/2012/04/13/21/07/pixel-graphic-32493_1280.png') repeat;
+      color: #00ff00;
+      text-shadow: 2px 2px #000;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    header p { font-size: 1rem; max-width: 720px; margin: 0 auto; }
+    .highlight-yellow { color: yellow; background: black; padding: 0 0.3rem; }
+    .cta {
+      display: inline-block;
+      background: #ff0000;
+      color: white;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+      text-shadow: 1px 1px black;
+    }
+    .cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.8);
+      background: #ff4500;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+    .levels-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .level {
+      flex: 0 0 100%;
+      padding: 3rem 2rem;
+      background: transparent;
+      text-align: center;
+    }
+    .level-title {
+      font-size: 1.4rem;
+      color: yellow;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px black;
+    }
+    .level-description {
+      font-size: 0.75rem;
+      color: white;
+    }
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: rgba(0,0,0,0.7);
+      color: yellow;
+      border: 2px dashed yellow;
+      padding: 1rem;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .arrow-left { left: 0; }
+    .arrow-right { right: 0; }
+
+    .bonus-section {
+      background: black;
+      border-top: 4px dashed yellow;
+      border-bottom: 4px dashed yellow;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .bonus-section h2 {
+      font-size: 1.4rem;
+      color: yellow;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px black;
+    }
+    .bonus-section p {
+      font-size: 0.85rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .guarantee {
+      background: transparent;
+      color: #facc15;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      text-shadow: 1px 1px black;
+    }
+    .guarantee strong {
+      display: block;
+      font-size: 1.5rem;
+      color: yellow;
+      margin-bottom: 1rem;
+    }
+
+    .cta-final { text-align: center; margin: 3rem auto; }
+    footer {
+      background: black;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.5rem; }
+      header p, .level-description, .bonus-section p { font-size: 0.75rem; }
+      .level-title, .bonus-section h2 { font-size: 1.1rem; }
+      .cta { font-size: 0.9rem; padding: 0.8rem 1.2rem; }
+      .arrow-button { font-size: 1.5rem; padding: 0.6rem; }
+      .guarantee strong { font-size: 1.2rem; }
+    }
+    
+    .retro-arrow {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto;
+  font-size: 2rem;
+  text-decoration: none;
+  color: yellow;
+  font-family: 'Press Start 2P', cursive;
+  animation: blink 1s infinite;
+  border: 2px dashed yellow;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: black;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      🎮¿PROGRAMADOR? Domina las ventas</h1>
+    <p>Superá cada nivel para conseguir clientes de <span class="highlight-yellow">$5,000 a $10,000 USD</span>.</p>
+    <a href="https://wa.me/+541158225842?text=Escala" class="cta">¡Contactame y Jugá AHORA!</a>
+  </header>
+  
+  <a href="http://localhost:5000" target="_blank" style="color: yellow; font-family: monospace;">Registrarme</a>
+
+
+<section style="text-align: center; padding: 2rem;">
+  <p style="color: #facc15; font-size: 0.9rem;">
+    No es un curso, es el <span class="highlight-yellow">modo historia</span> donde vos sos el protagonista. Cada nivel que desbloqueás te acerca más a vivir 100% de tus servicios.
+  </p>
+</section>
+
+  <div class="carousel-wrapper">
+    <div class="arrow-button arrow-left" onclick="moverCarrusel(-1)">◀</div>
+    <div class="levels-container" id="carrusel">
+      <section class="level"><h2 class="level-title">Nivel 1</h2><p class="level-description">Landings que convierten visitas en ventas.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 2</h2><p class="level-description">Embudo automático 24/7.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 3</h2><p class="level-description">Organizá tu negocio con Excel pro.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 4</h2><p class="level-description">De freelance a agencia.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 5</h2><p class="level-description">Psicología de ventas aplicada.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 6</h2><p class="level-description">Scripts y plantillas con IA.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 7</h2><p class="level-description">Reels que monetizan mientras dormís.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 8</h2><p class="level-description">WhatsApp con respuestas automáticas.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 9</h2><p class="level-description">Diagnóstico y estrategia personalizada.</p></section>
+      <section class="level"><h2 class="level-title">Nivel 10</h2><p class="level-description">Cerrá clientes de <span class="highlight-yellow">$5,000+</span>.</p></section>
+    </div>
+    <div class="arrow-button arrow-right" onclick="moverCarrusel(1)">▶</div>
+  </div>
+  <section style="text-align: center; padding: 2rem;">
+  <p style="color: #00ff00; font-size: 0.9rem;">
+    ⚠️ La mayoría abandona antes de llegar al nivel 10... <br> Vos no sos uno más. Vos estás a punto de desbloquear el modo pro. 🔓
+  </p>
+</section>
+
+  <br> <br>
+  <section>
+<section class="level" style="background: #111; border-top: 4px dashed yellow;">
+  
+  <h2 class="level-title"> BONUS EXCLUSIVO</h2>
+  <p class="level-description">🎬 Acceso a <span class="highlight-yellow">videos exclusivos</span> con estrategias que no comparto en ningún otro lado.</p>
+  <p class="level-description">📚 PDF con <span class="highlight-yellow">+200 nichos rentables</span> que necesitan programadores como vos.</p>
+  <p class="level-description">💬 Mensajes de venta <span class="highlight-yellow">personalizados según tu nicho</span> y un informe estratégico adaptado a tu caso.</p>
+
+  </section>
+<section class="level" style="background: ; border-top: 4px dashed yellow;">
+
+<section class="guarantee">
+  <p class="typewrite" data-text="💡 GARANTIA TOTAL:
+                                  Si no conseguís resultados en 3 meses, te acompaño hasta que los logres."></p>
+<section class="testimonio-retro" style="text-align: center; padding: 5rem 2rem;">
+  <h2 style="color: yellow; font-size: 1.6rem; margin-bottom: 2.5rem;">🗣️ Testimonio Real</h2>
+  <img src="C:\Users\stsda\OneDrive\Escritorio\public\TESTIMONIO.jpg" 
+       alt="Testimonio" 
+       style="width: 220px; border-radius: 12px; border: 2px dashed yellow; margin-bottom: 2rem;">
+</section>
+
+<p style="color: #00ff00; font-size: 1rem; max-width: 1120px; margin: 0 auto;">
+  Pensé que era un sueño... hasta que lo viví. Solo usando la prueba gratuita, logré optimizar mi perfil, ganar claridad y reformar mi estrategia para atraer clientes premium.”
+</p>
+  <br>
+ <a href="#promesa" class="retro-arrow">
+  <span>▼</span>
+</a>
+
+
+<section id="promesa" style="text-align:; padding: rem;">
+  <p class="typewrite" data-text="🚀 Esto no es una promesa vacía. Es una guía creada desde la batalla real. Y ahora está en tus manos."></p>
+</section>
+
+
+  <div class="cta-final">
+    <a href="https://wa.me/+541158225842?text=Escala" class="cta">🎮 ¡Jugar Ahora y Empezar tu Misión!</a>
+  </div>
+
+  <footer>
+    <h4>
+      
+   &copy; 2025 Estrategias para Programadores - Todos los derechos reservados. </h4>
+  </footer>
+
+  <script>
+    const carrusel = document.getElementById('carrusel');
+    let index = 0;
+
+    function moverCarrusel(dir) {
+      const total = carrusel.children.length;
+      index += dir;
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      carrusel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    const audio = new Audio('https://freesound.org/data/previews/613/613613_5674468-lq.mp3');
+    audio.loop = true;
+    audio.volume = 0.3;
+    audio.play();
+    
+  function typeText(el, text, speed = 25) {
+    let i = 0;
+    function typing() {
+      if (i < text.length) {
+        el.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, speed);
+      }
+    }
+    typing();
+  }
+
+  function isVisible(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight - 50;
+  }
+
+  function activateTyping() {
+    document.querySelectorAll('.typewrite').forEach(el => {
+      if (isVisible(el) && !el.classList.contains('typed')) {
+        el.classList.add('typed');
+        typeText(el, el.getAttribute('data-text'));
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', activateTyping);
+  window.addEventListener('load', activateTyping);
+  <!-- CÓDIGO FORMU -->
+  
+  </script>
+
+</div>
+</body>
+</html>
+
